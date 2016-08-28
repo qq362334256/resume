@@ -1,0 +1,145 @@
+// 加载核心样式库
+@import './fn.less';
+
+// MY核心重置样式
+.MY_core(){
+	html, body, header, section, footer, h1, h2, h3, h4, h5, h6, hr, 
+	p, blockquote, dl, dt, dd, ul, ol, li, pre, 
+	form, fieldset, legend, button, input, textarea, 
+	th, td, figure{ 
+		margin:0;
+		padding:0; 
+		border: 0;
+		outline: 0;
+		vertical-align: baseline;
+	}
+	address, cite, dfn, em, var {
+		font-style:normal;
+	}
+	ol, ul {
+		list-style: none;
+	}
+	code, kbd, pre, samp {
+		font-family:couriernew, courier, monospace;
+	}
+	sup {
+		vertical-align:text-top;
+	}
+	sub{
+		vertical-align:text-bottom;
+	}
+	fieldset, img{
+		border:0;
+	}
+	img{
+		display:block;
+		max-width:100%;
+	}
+	button, input, select, textarea{
+		font-size:100%;
+		outline:0;
+	}
+	h1, h2, h3, h4, h5, h6, b, strong, p, span, small, time, figcaption, dt, dd, em{
+		line-height:1;
+	}
+	h1, h2, h3, h4, h5, h6, b, strong, small{
+		font-weight:normal;
+	}
+	small{
+		font-size:0.9em;
+	}
+	table{
+		border-collapse:collapse;
+		border-spacing:0;
+	}
+}
+
+
+// MY表单样式设置
+.MY_form(@Bradius:4px, @Bwidth:1px, @Bstyle:solid, @Bcolor:black, @color:gray,
+		 @Hx:1px, @Hy:1px, @Hwidth:2px, @Hcolor:gray,
+		 @Buradius:8px, @Bubackground:white, @Bucolor:gray
+){
+	input{
+		text-indent:1em;
+		border-radius:0;
+		border:none;
+		color:@color;
+	}
+	input:hover{
+		box-shadow:none;
+	}
+	input[type="button"]{
+		background:@Bubackground;
+		border-radius:@Buradius;
+		color:@Bucolor;
+		text-indent:0;
+		text-align:center;
+		cursor:pointer;
+	}
+}
+
+// 超链接样式重置
+.MY_a(@color:black){
+	a{
+		border:none;
+		text-decoration:none;
+		color:@color;
+		display:inline-block;
+	    outline: 0;
+	    -webkit-appearance:none; /*取消iphone自带样式*/
+	    -webkit-text-size-adjust: none;
+	    -webkit-tap-highlight-color: rgba(0,0,0,0);
+	}
+}
+
+// MY html,body样式设置
+.MY_HTML_BODY(@w:100%, @h:100%, @Background:white){
+	html, body{
+		width:@w;
+		height:@h;
+		font-family:STHeiti Regular, STHeiti Light, STXihei, 黑体;
+		background:@Background;
+		box-sizing:content-box;
+		cursor:default;
+	}
+	// html{
+	// 	font-size:625%;
+	// }
+	// body{
+	// 	font-size:12px;
+	// }
+}
+
+// class样式设置
+.body{
+	width:100%;
+	height:100%;
+}
+.container{
+	width:92%;
+	margin:0 auto;
+}
+.content{
+	// max-width:7.5rem;
+	margin:0 auto;
+}
+.button{
+	display:block;
+	// cursor:pointer;
+	text-align:center;
+	.fn_text-none();
+}
+.arc{
+	display:inline-block;
+	border-radius:50%;
+}
+.ico{
+	display:inline-block;
+}
+
+// 重置默认样式
+.MY_core();
+.MY_form();
+.MY_a();
+.MY_HTML_BODY();

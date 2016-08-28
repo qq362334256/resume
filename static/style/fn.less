@@ -1,0 +1,80 @@
+// css3帧动画
+.fn_animation(@value){
+	-o-animation:@value;
+	-ms-animation:@value;
+	-moz-animation:@value;
+	-webkit-animation:@value;
+	animation:@value;
+}
+
+// css3兼容样式
+.fn_transform(@value){
+	-o-transform:@value;
+	-ms-transform:@value;
+	-moz-transform:@value;
+	-webkit-transform:@value;
+	transform:@value;
+}
+
+// css3过渡动画
+.fn_transition(@value){
+	-o-transition:@value;
+	-ms-transition:@value;
+	-moz-transition:@value;
+	-webkit-transition:@value;
+	transition:@value;
+}
+
+// 清除浮动
+.fn_clear(){
+	content: '';
+	display:block;
+	clear:both;
+}
+
+// 文本溢出隐藏并且.点省略
+.fn_text-overflow(){
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+
+// 绝对定位样式
+.fn_absolute(){
+	position:absolute;
+	top:0;
+	left:0;
+}
+
+// 浮动定位样式
+.fn_fixed(){
+	position:fixed;
+	top:0;
+	left:0;
+}
+
+// ico通用样式
+.fn_ico(@url, @Bsize){
+	background:@url;
+	background-size:@Bsize;
+}
+
+// calc样式
+.fn_width-calc(@value){
+	width:-webkit-calc(@value);
+	width:calc(@value);
+}
+.fn_height-calc(@value){
+	height:-webkit-calc(@value);
+	height:calc(@value);
+}
+
+// 禁止选中文本
+.fn_text-none{
+	-o-user-select: none; 
+	-ms-user-select: none; 
+	-moz-user-select: none; 
+	-webkit-user-select: none; 
+	-khtml-user-select: none; 
+	user-select: none;
+};
