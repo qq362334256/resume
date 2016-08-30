@@ -4,7 +4,8 @@ $(function(){
 		var container = $('.layout-box'),
 			btn = $('.switch-box').find('li'),
 			index = 0,
-			parS = [false, false, false, false];
+			parS = [false, false, false, false],
+			isWheel = true;
 
 		// 调用初始化第一页特效
 		loadAnimate(index);
@@ -29,18 +30,26 @@ $(function(){
 			};
 		});
 
+		// 绑定滚动切换
+		$(window).on('mousewheel', function(e){
+			if(isWheel){
+				isWheel = false;
+
+				if(e.originalEvent.deltaY > 0){ // 向下
+					scrollAlign('top');
+				} else { // 向上
+					scrollAlign('bottom');
+				};	
+
+				setTimeout(function(){
+					isWheel = true;
+				}, 800);
+			};
+		});
+
 		// 绑定手势滑动切换
 		miaoyu.touch.swipeTwo('top-bottom', $(document), 'topBottomSwitch', function(e){
-			var height = $(window).height(),
-				maxIndex = btn.length - 1;
-
-			if(e.touchS.align === 'bottom'){ // 往下
-				if(index-- <= 0) index = 0;
-				setAnimate(container, btn, height, index);
-			} else { // 往上
-				if(index++ >= maxIndex) index = maxIndex;
-				setAnimate(container, btn, height, index);
-			};
+			scrollAlign(e.touchS.align);
 		}, 50);
 
 		// 设置动画
@@ -50,6 +59,20 @@ $(function(){
 			btn.removeClass('sel').eq(index).addClass('sel');
 
 			loadAnimate(index);
+		};
+
+		// 滚动方向
+		function scrollAlign(align){
+			var height = $(window).height(),
+			maxIndex = btn.length - 1;
+
+			if(align === 'bottom'){ // 往下
+				if(index-- <= 0) index = 0;
+				setAnimate(container, btn, height, index);
+			} else { // 往上
+				if(index++ >= maxIndex) index = maxIndex;
+				setAnimate(container, btn, height, index);
+			};
 		};
 
 		// 页面加载动画
@@ -162,4 +185,7 @@ $(function(){
 		});
 	};	
 	experience();
+
+
+	miaoyu.plus.msgbox.open();
 });
